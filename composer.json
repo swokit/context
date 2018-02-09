@@ -1,5 +1,5 @@
 {
-  "name": "swoole-libs/task",
+  "name": "swoole-libs/context",
   "type": "library",
   "description": "some context tool library of the swoole",
   "keywords": ["library","tool","php"],
