@@ -15,6 +15,14 @@ namespace SwooleLib\Context;
 interface ContextManagerInterface
 {
     /**
+     * has context
+     *
+     * @param string $id
+     * @return boolean
+     */
+    public function has($id): bool;
+
+    /**
      * @param ContextInterface $context
      */
     public function add(ContextInterface $context);

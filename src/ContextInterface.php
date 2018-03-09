@@ -25,14 +25,14 @@ interface ContextInterface
     public function getId();
 
     /**
-     * @param  string $id
+     * @param string $id
      */
     public function setId($id);
 
     /**
      * @return string
      */
-    public function getKey();
+    public function getKey(): string;
 
     /**
      * destroy something ...

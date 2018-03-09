@@ -26,7 +26,7 @@ class ContextManager implements ContextManagerInterface
      * @param string $id
      * @return bool
      */
-    public function has($id)
+    public function has($id): bool
     {
         return isset($this->contextList[$id]);
     }
@@ -127,7 +127,7 @@ class ContextManager implements ContextManagerInterface
         }
 
         if ($thrError) {
-            throw new \RuntimeException("the request context is not exists for CoId:[$id]");
+            throw new \RuntimeException("The request context is not exists for CoId:[$id]");
         }
 
         return null;

@@ -65,7 +65,7 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
      * @param $id
      * @return string
      */
-    public static function genKey($id)
+    public static function genKey($id): string
     {
         return md5($id . getmypid());
     }
@@ -100,7 +100,7 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
     /**
      * @return array
      */
-    public function all()
+    public function all(): array
     {
         return [
             'id' => $this->id,
@@ -149,7 +149,7 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
     /**
      * @return string
      */
-    public function getKey()
+    public function getKey(): string
     {
         return $this->key;
     }
