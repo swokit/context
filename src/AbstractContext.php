@@ -6,9 +6,9 @@
  * Time: 11:38
  */
 
-namespace SwooleLib\Context;
+namespace SwooleKit\Context;
 
-use SwooleLib\Context\Traits\ArrayAccessByPropertyTrait;
+use SwooleKit\Context\Traits\ArrayAccessByPropertyTrait;
 
 use Inhere\Http\ServerRequest as Request;
 use Inhere\Http\Response;
@@ -18,7 +18,7 @@ use Swoole\Http\Response as SwResponse;
 
 /**
  * Class Context
- * @package SwooleLib\Context
+ * @package SwooleKit\Context
  */
 abstract class AbstractContext implements ContextInterface, \ArrayAccess
 {
@@ -86,6 +86,8 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
     /**
      * @param SwRequest $swRequest
      * @param SwResponse $swResponse
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
      */
     public function setRequestResponse(SwRequest $swRequest, SwResponse $swResponse)
     {

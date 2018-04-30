@@ -1,9 +1,9 @@
 {
-  "name": "swoole-libs/context",
+  "name": "swoole-kit/context",
   "type": "library",
   "description": "some context tool library of the swoole",
   "keywords": ["library","tool","php"],
-  "homepage": "https://github.com/swoole-libs/context",
+  "homepage": "https://github.com/swoole-kit/context",
   "license": "MIT",
   "authors": [
     {
@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "SwooleLib\\Context\\" : "src/"
+      "SwooleKit\\Context\\" : "src/"
     }
   },
   "suggest": {

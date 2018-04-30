@@ -6,7 +6,7 @@
  * Time: 15:25
  */
 
-namespace SwooleLib\Context;
+namespace SwooleKit\Context;
 
 use Inhere\Http\ServerRequest;
 use Inhere\Http\Response;
@@ -14,20 +14,23 @@ use Inhere\Http\UploadedFile;
 use Inhere\Http\Uri;
 
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Swoole\Http\Response as SwResponse;
 use Swoole\Http\Request as SwRequest;
 
 /**
  * Class Psr7Http
- * @package SwooleLib\Context
+ * @package SwooleKit\Context
  */
 final class Psr7Http
 {
     /**
      * @param SwRequest $swRequest
-     * @return ServerRequest
+     * @return ServerRequest|ServerRequestInterface
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
      */
-    public static function createServerRequest(SwRequest $swRequest)
+    public static function createServerRequest(SwRequest $swRequest): ServerRequestInterface
     {
         $uri = $swRequest->server['request_uri'];
         $method = $swRequest->server['request_method'];
@@ -79,8 +82,9 @@ final class Psr7Http
     /**
      * @param null|array $headers
      * @return Response
+     * @throws \InvalidArgumentException
      */
-    public static function createResponse(array $headers = null)
+    public static function createResponse(array $headers = null): ResponseInterface
     {
         // $headers = ['Content-Type' => 'text/html; charset=' . \Sws::get('config')->get('charset', 'UTF-8')];
 

@@ -6,11 +6,11 @@
  * Time: 22:03
  */
 
-namespace SwooleLib\Context\Traits;
+namespace SwooleKit\Context\Traits;
 
 /**
  * Class TraitArrayAccess
- * @package SwooleLib\Context\Traits
+ * @package SwooleKit\Context\Traits
  * ```
  * class A implements \ArrayAccess
  * {
