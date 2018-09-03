@@ -10,12 +10,6 @@ namespace SwooleKit\Context;
 
 use SwooleKit\Context\Traits\ArrayAccessByPropertyTrait;
 
-use Inhere\Http\ServerRequest as Request;
-use Inhere\Http\Response;
-
-use Swoole\Http\Request as SwRequest;
-use Swoole\Http\Response as SwResponse;
-
 /**
  * Class Context
  * @package SwooleKit\Context
@@ -39,27 +33,7 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
     /**
      * @var array
      */
-    private $args = [];
-
-    /**
-     * @var Request
-     */
-    public $request;
-
-    /**
-     * @var Response
-     */
-    public $response;
-
-    /**
-     * @var SwRequest
-     */
-    public $swRequest;
-
-    /**
-     * @var SwResponse
-     */
-    public $swResponse;
+    private $data = [];
 
     /**
      * @param $id
@@ -67,7 +41,7 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
      */
     public static function genKey($id): string
     {
-        return md5($id . getmypid());
+        return \md5($id . \getmypid());
     }
 
     /**
@@ -75,29 +49,8 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
      */
     public function __construct()
     {
-        $this->init();
+        // do something ...
     }
-
-    protected function init()
-    {
-        // somethings ...
-    }
-
-    /**
-     * @param SwRequest $swRequest
-     * @param SwResponse $swResponse
-     * @throws \RuntimeException
-     * @throws \InvalidArgumentException
-     */
-    public function setRequestResponse(SwRequest $swRequest, SwResponse $swResponse)
-    {
-        $this->request = Psr7Http::createServerRequest($swRequest);
-        $this->response = Psr7Http::createResponse();
-
-        $this->swRequest = $swRequest;
-        $this->swResponse = $swResponse;
-    }
-
 
     /**
      * @return array
@@ -123,9 +76,8 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
      */
     public function destroy()
     {
-        $this->args = [];
+        $this->data = [];
         $this->id = $this->key = null;
-        $this->request = $this->response = $this->swRequest = $this->swResponse = null;
     }
 
     /*******************************************************************************
@@ -165,83 +117,37 @@ abstract class AbstractContext implements ContextInterface, \ArrayAccess
     }
 
     /**
-     * @return Request
+     * @param string $key
+     * @return mixed
      */
-    public function getRequest(): Request
+    public function get(string $key)
     {
-        return $this->request;
+        return $this->data[$key] ?? null;
     }
 
     /**
-     * @param Request $request
+     * @param string $key
+     * @param $value
      */
-    public function setRequest(Request $request)
+    public function set(string $key, $value)
     {
-        $this->request = $request;
-    }
-
-    /**
-     * @return Response
-     */
-    public function getResponse(): Response
-    {
-        return $this->response;
-    }
-
-    /**
-     * @param Response $response
-     */
-    public function setResponse(Response $response)
-    {
-        $this->response = $response;
-    }
-
-    /**
-     * @return SwRequest
-     */
-    public function getSwRequest(): SwRequest
-    {
-        return $this->swRequest;
-    }
-
-    /**
-     * @param SwRequest $swRequest
-     */
-    public function setSwRequest(SwRequest $swRequest)
-    {
-        $this->swRequest = $swRequest;
-    }
-
-    /**
-     * @return SwResponse
-     */
-    public function getSwResponse(): SwResponse
-    {
-        return $this->swResponse;
-    }
-
-    /**
-     * @param SwResponse $swResponse
-     */
-    public function setSwResponse(SwResponse $swResponse)
-    {
-        $this->swResponse = $swResponse;
+        $this->data[$key] = $value;
     }
 
     /**
      * @return array
      */
-    public function getArgs(): array
+    public function getData(): array
     {
-        return $this->args;
+        return $this->data;
     }
 
     /**
-     * @param array $args
+     * @param array $data
      */
-    public function setArgs(array $args)
+    public function setData(array $data)
     {
-        $this->args = $args;
+        $this->data = $data;
     }
 
 }

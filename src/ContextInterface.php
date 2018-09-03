@@ -35,27 +35,29 @@ interface ContextInterface
     public function getKey(): string;
 
     /**
+     * @param string $key
+     * @return mixed
+     */
+    public function get(string $key);
+
+    /**
+     * @param string $key
+     * @param $value
+     */
+    public function set(string $key, $value);
+
+    /**
      * destroy something ...
      */
     public function destroy();
 
     /**
-     * @return ServerRequestInterface
-     */
-    public function getRequest();
-
-    /**
-     * @return ResponseInterface
-     */
-    public function getResponse();
-
-    /**
      * @return array
      */
-    public function getArgs(): array;
+    public function getData(): array;
 
     /**
-     * @param array $args
+     * @param array $data
      */
-    public function setArgs(array $args);
+    public function setData(array $data);
 }
