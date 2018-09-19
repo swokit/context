@@ -5,7 +5,7 @@ http server 和 websocket server需要上下文管理
 ## install
 
 ```bash
-composer require swoole-kit/context
+composer require swokit/context
 ```
 
 ## license

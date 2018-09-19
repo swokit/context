@@ -6,14 +6,14 @@
  * Time: 15:19
  */
 
-namespace SwooleKit\Context;
+namespace SwoKit\Context;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Interface ContextInterface
- * @package SwooleKit\Context
+ * @package SwoKit\Context
  *
  * @property string $id The request context unique ID
  */

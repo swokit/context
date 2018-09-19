@@ -6,14 +6,14 @@
  * Time: 15:17
  */
 
-namespace SwooleKit\Context;
+namespace SwoKit\Context;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Class ContextManager
- * @package SwooleKit\Context
+ * @package SwoKit\Context
  */
 class ContextManager implements ContextManagerInterface
 {

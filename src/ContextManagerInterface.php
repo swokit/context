@@ -6,11 +6,11 @@
  * Time: 10:08
  */
 
-namespace SwooleKit\Context;
+namespace SwoKit\Context;
 
 /**
  * Interface ContextManagerInterface
- * @package SwooleKit\Context
+ * @package SwoKit\Context
  */
 interface ContextManagerInterface
 {

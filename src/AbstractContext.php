@@ -6,13 +6,13 @@
  * Time: 11:38
  */
 
-namespace SwooleKit\Context;
+namespace SwoKit\Context;
 
-use SwooleKit\Context\Traits\ArrayAccessByPropertyTrait;
+use SwoKit\Context\Traits\ArrayAccessByPropertyTrait;
 
 /**
  * Class Context
- * @package SwooleKit\Context
+ * @package SwoKit\Context
  */
 abstract class AbstractContext implements ContextInterface, \ArrayAccess
 {
